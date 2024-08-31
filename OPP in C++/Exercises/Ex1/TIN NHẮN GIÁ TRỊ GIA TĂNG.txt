@@ -1,11 +1,12 @@
-﻿- Bài toán: 
-+ Người ta muốn làm phần mềm nhận tin nhắn từ khách hàng gửi về. 
-+ Tin nhắn mang nội dung LQ G nếu người nhắn muốn xin số điện thoại của ba bạn nữ. 
-+ Tin nhắn mang nội dung LQ B nếu người nhắn muốn xin số điện thoại của ba bạn nam. 
-+ Vấn đề là người nhắn có thể nhắn các tin với nội dung khác với quy định. 
-+ Chẳng hạn họ nhắn: “Toi xin gui LQ B!!!!” hoặc “Tran LQuyen xin lam quen LQ B". Hoặc thậm chí là “LQ A  LQ G" 
-+ Làm thế nào để biết tin nhắn này đúng định dạng hay không? 
-+ Và sau này nếu phần mềm có các yêu cầu khác (nhận dạng LQ NU,  LQ NAM) thì làm thế nào có thể nâng cấp phần mềm mà ít chỉnh sửa mã nguồn cũ nhất (chỉ thêm mã nguồn mới).
+						Phần mềm kiểm tra định dạng tin nhắn
+- Bài toán: 
+	+ Người ta muốn làm phần mềm nhận tin nhắn từ khách hàng gửi về. 
+	+ Tin nhắn mang nội dung LQ G nếu người nhắn muốn xin số điện thoại của ba bạn nữ. 
+	+ Tin nhắn mang nội dung LQ B nếu người nhắn muốn xin số điện thoại của ba bạn nam. 
+	+ Vấn đề là người nhắn có thể nhắn các tin với nội dung khác với quy định. 
+	+ Chẳng hạn họ nhắn: “Toi xin gui LQ B!!!!” hoặc “Tran LQuyen xin lam quen LQ B". Hoặc thậm chí là “LQ A  LQ G" 
+	+ Làm thế nào để biết tin nhắn này đúng định dạng hay không? 
+	+ Và sau này nếu phần mềm có các yêu cầu khác (nhận dạng LQ NU,  LQ NAM) thì làm thế nào có thể nâng cấp phần mềm mà ít chỉnh sửa mã nguồn cũ nhất (chỉ thêm mã nguồn mới).
 - Chú thích: Tin nhắn hợp lệ nếu:
 	+ Trước và sau nội dung là các ký tự khác chữ cái:
 		*vd: 1234LQ G?, LQ G!!!, !@LQ B là các tin nhắn hợp lệ.
