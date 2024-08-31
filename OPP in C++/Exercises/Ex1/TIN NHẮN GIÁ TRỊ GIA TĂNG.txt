@@ -1,0 +1,46 @@
+﻿- Bài toán: 
++ Người ta muốn làm phần mềm nhận tin nhắn từ khách hàng gửi về. 
++ Tin nhắn mang nội dung LQ G nếu người nhắn muốn xin số điện thoại của ba bạn nữ. 
++ Tin nhắn mang nội dung LQ B nếu người nhắn muốn xin số điện thoại của ba bạn nam. 
++ Vấn đề là người nhắn có thể nhắn các tin với nội dung khác với quy định. 
++ Chẳng hạn họ nhắn: “Toi xin gui LQ B!!!!” hoặc “Tran LQuyen xin lam quen LQ B". Hoặc thậm chí là “LQ A  LQ G" 
++ Làm thế nào để biết tin nhắn này đúng định dạng hay không? 
++ Và sau này nếu phần mềm có các yêu cầu khác (nhận dạng LQ NU,  LQ NAM) thì làm thế nào có thể nâng cấp phần mềm mà ít chỉnh sửa mã nguồn cũ nhất (chỉ thêm mã nguồn mới).
+- Chú thích: Tin nhắn hợp lệ nếu:
+	+ Trước và sau nội dung là các ký tự khác chữ cái:
+		*vd: 1234LQ G?, LQ G!!!, !@LQ B là các tin nhắn hợp lệ.
+		*vd: aasssLQ B!!!, uiO!LQ GLppoq là các tin nhắn không hợp lệ.
+- Yêu cầu: Code theo OOP.
+- Tại sao lại có bài toán này??
+	+ Vào những năm 2000, mn sử dụng cục gạch ==> nhắn tin sms mất phí
+	==> Nếu phần mềm nhận tin nhắn không tối ưu ==> người nhắn tin mất rất nhiều tiền.
+- Test:
+	+ Case1: L!!!!!LQ G!! ==> Valid massage
+	+ Case2: Toi xin gui LQ B!!!! ==> Valid massage
+	+ Case3: Tran LQuyen xin lam quen LQ B ==> Valid massage
+	+ Case4: LQ A  LQ B ==> Valid massage
+	+ Case5: LQ G ==> Valid massage
+	+ Case6: aaaasssdaLQ B!!!! ==> Invalid massage
+	+ Case6: aaaaaaooop!LQ G!!!;;; ==> Valid massage
+	+ Case7: qoierpqweoriq))(LQ Basdsdd ==> Invalid massage
+	+ Case8: LQ Gaaaaaaa ==> Invalid massage
+
+- Gợi ý:
+	+ Cách 1: Sử dụng Regular Expression (Regex) (Khuyến khích nên code bằng cách khác tại nếu sử dụng Regex thì dễ quá)
+	+ Cách 2: Sử dụng hàm find 
+	+ Cách 3: Code thuần:
+Đầu tiên, ta xây dựng phương pháp đoán nhận xâu có đinh dạng LQ B và LQ G hay không?
+Cách đoán nhận: 
+B1: Kiểm tra xâu từ trái sang phải
+B2: Kiểm tra xem có gặp chữ L mà nó ở đầu câu hoặc trước nó là dấu cách hay không? Nếu không gặp mà đã kiểm tra đến hết câu => không đúng định dạng.
+B3: Kiểm tra xem sau chữ L có Q hay không? Nếu không có thì tìm xem trong các ký tự tiếp theo, có kí tự nào là dấu cách. Nếu gặp dấu cách thì quay lại bước 2. Nếu không gặp dấu cách thì tiếp tục kiểm tra. Nếu đến hết xâu mà vẫn không thấy => phát biểu rằng KHÔNG ĐÚNG ĐỊNH DẠNG
+B4 (đã gặp L độc lập và sau L là Q) kiểm tra xem ký tự tiếp theo có phải là dấu cách hay không? 
+        Nếu gặp ngay dấu cách, thì sang bước 5.
+        nếu KHÔNG gặp dấu cách (chẳng hạn gặp chữ A) thì quay lại bước 2.
+B5 (đã gặp LQ và sau đó là dấu cách), kiểm tra xem ký tự tiếp theo có phải là B hoặc G hay không?
+        Nếu vẫn gặp dấu cách, thì vẫn ở bước 5, và kiểm tra tiếp
+        Nếu gặp B thì sang bước 6
+        Nếu gặp G thì sang bước 7
+        Ngược lại (chẳng hạn xâu LQ   A   LQ B) thì quay lại bước 2
+B6: đã gặp LQ B, kiểm tra xem sau B có chữ cái không? Nếu có thì xâu sai định dạng (chẳng hạn LQ BA), và quay lại bước 2. Nếu xâu có “LQ B" ở cuối thì kết luận đúng định dạng. Nếu sau B có ký tự không phải chữ cái thì kể từ nay trở đ xâu luôn đúng định dạng (“LQ B!!!!!”)
+B7: tương tự như bước 6, chẳng qua thay B bằng G thôi.
