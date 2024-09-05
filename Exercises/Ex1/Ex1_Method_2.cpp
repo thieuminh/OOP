@@ -1,4 +1,5 @@
 // This code uses the find function to solve the problem.
+// We can change the format of massage in lines 14 and 15.
 #include<bits/stdc++.h>
 #define endl '\n'
 using namespace std;
@@ -9,9 +10,9 @@ typedef string str;
 class message{
     private:
         str mess;
-        const str pre_mess="LQ ";
-        const str suf_messB="B";
-        const str suf_messG="G";
+        const str pre_mess="LQ "; 
+        const str suf_messB="B"; // Ex: "BOY"
+        const str suf_messG="G"; // Ex: "GIRL" 
         str messB=pre_mess+suf_messB;
         str messG=pre_mess+suf_messG;
     public:
