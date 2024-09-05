@@ -1,4 +1,4 @@
-						Phần mềm kiểm tra định dạng tin nhắn
+						Chương trình kiểm tra định dạng tin nhắn
 - Bài toán: 
 	+ Người ta muốn làm phần mềm nhận tin nhắn từ khách hàng gửi về. 
 	+ Tin nhắn mang nội dung LQ G nếu người nhắn muốn xin số điện thoại của ba bạn nữ. 
