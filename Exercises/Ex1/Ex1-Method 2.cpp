@@ -1,3 +1,4 @@
+// This code uses the find function to solve the problem.
 #include<bits/stdc++.h>
 #define endl '\n'
 using namespace std;
